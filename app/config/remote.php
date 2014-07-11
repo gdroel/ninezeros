@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '',
-			'username'  => '',
-			'password'  => '',
+			'host'      => 'http://gaberoeloffs.com ',
+			'username'  => 'gdroel',
+			'password'  => 'r13pomd45',
 			'key'       => '',
 			'keyphrase' => '',
-			'root'      => '/var/www',
+			'root'      => '/httpdocs',
 		),
 
 	),
