@@ -18,8 +18,11 @@ class HomeController extends BaseController {
 	public function index(){
 
 		$i = 1;
+
+		$average = Number::updateAverage();
+		$average = number_format(round($average));
 		$everything = Number::orderBy('number', 'desc')->paginate(10);
-		return View::make('index',compact('everything','i'));
+		return View::make('index',compact('everything','i','average'));
 	}
 
 	public function newNumber(){
@@ -37,10 +40,6 @@ class HomeController extends BaseController {
 		$percent = $randnum/1000000000;
 		$percent = round((float)$percent * 100 );
 		$percent = 100-$percent;
-
-		//echo $randnum;
-
-		$rank = $number->rank;
 
 		return Redirect::to('highscores')
 			->with('randnum',$randnum)
