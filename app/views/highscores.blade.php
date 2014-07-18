@@ -34,6 +34,9 @@
 <h1>Highscores</h1>
 @endif
 
+<hr>
+<h3><span style="font-weight:300">Average:</span> {{ $average }}</h3>
+<hr>
 <table class="table">
 	<tr>
 		<th>Rank</th>

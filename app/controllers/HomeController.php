@@ -44,8 +44,7 @@ class HomeController extends BaseController {
 		return Redirect::to('highscores')
 			->with('randnum',$randnum)
 			->with('name',$name)
-			->with('percent',$percent)
-			->with('rank', $rank);
+			->with('percent',$percent);
 	}
 
 	public function highscores(){
@@ -56,8 +55,11 @@ class HomeController extends BaseController {
 
 		$i = 1;
 
+		$average = Number::updateAverage();
+		$average = number_format(round($average));
+		
 		$everything = Number::orderBy('number', 'desc')->paginate(20);
-		return View::make('highscores', compact('randnum','everything','name','i','percent'));
+		return View::make('highscores', compact('randnum','everything','name','i','percent','average'));
 	}
 
 
